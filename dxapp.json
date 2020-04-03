@@ -1,9 +1,11 @@
 {
-  "name": "dnanexus_samtools_flagstat_v1.0.0",
-  "title": "dnanexus_samtools_flagstat_v1.0.0",
-  "summary": "Provides counts for each of 13 categories based primarily on bit flags in the FLAG field. Each category in the output is broken down into QC pass and QC fail. In the default output format, these are presented as \"#PASS + #FAIL\" followed by a description of the category.",
+  "name": "samtools_flagstat_v1.0.0",
+  "title": "samtools_flagstat_v1.0.0",
+  "summary": "Provides counts for each of 13 categories based primarily on bit flags in the FLAG field. Each category in the output is broken down into QC pass and QC fail. In the default output format, these are presented as \"#PASS + #FAIL\" followed by a description of the category. See http://www.htslib.org/doc/samtools-flagstat.html for further documentation.",
   "dxapi": "1.0.0",
-  "version": "0.0.1",
+  "properties": {
+    "githubRelease":"v1.0.0"
+  },
   "inputSpec": [
     {
       "name": "input_bam",
@@ -11,7 +13,7 @@
       "class": "file",
       "optional": false,
       "patterns": [
-        "*"
+        "*.bam"
       ],
       "help": ""
     },
@@ -21,7 +23,7 @@
       "class": "file",
       "optional": false,
       "patterns": [
-        "*"
+        "*.bam.bai"
       ],
       "help": ""
     }
@@ -32,7 +34,7 @@
       "label": "flagstat_output",
       "class": "file",
       "patterns": [
-        "*"
+        "*.flagstat"
       ],
       "help": ""
     }
@@ -46,16 +48,17 @@
     "interpreter": "bash",
     "release": "16.04",
     "distribution": "Ubuntu",
-    "file": "src/dnanexus_samtools_flagstat_v1.0.0.sh"
+    "file": "src/dnanexus_samtools_flagstat.sh"
   },
   "access": {
     "project": "CONTRIBUTE",
+    "allProjects": "VIEW",
     "network": [
       "*"
     ]
   },
   "regionalOptions": {
-    "aws:us-east-1": {
+    "aws:eu-central-1": {
       "systemRequirements": {
         "*": {
           "instanceType": "mem1_ssd1_x2"
